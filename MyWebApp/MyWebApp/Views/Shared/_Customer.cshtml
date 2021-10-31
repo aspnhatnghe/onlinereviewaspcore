@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Shoppers - @ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
+    <link href="~/fonts/icomoon/style.css" rel="stylesheet" />
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/magnific-popup.css" rel="stylesheet" />
+    <link href="~/css/jquery-ui.css" rel="stylesheet" />
+    <link href="~/css/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/css/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="~/css/aos.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+    <div class="site-wrap">
+        @await Html.PartialAsync("_MyHeader")
+
+        @RenderSection("NavigationBar", required: false)
+
+        @*Khối khác nhau ở từng trang con*@
+        @RenderBody()
+
+
+        @RenderSection("Scripts", required: false)
+
+    </div>
+
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/jquery-ui.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/js/aos.js"></script>
+    <script src="~/js/main.js"></script>
+
+    @await Html.PartialAsync("_MyFooter")
+</body>
+</html>
