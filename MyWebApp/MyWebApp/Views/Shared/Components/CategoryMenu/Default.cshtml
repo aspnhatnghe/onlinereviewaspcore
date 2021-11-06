@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Category>
+
+<li class="has-children">
+    <a href="about.html">CATEGORY</a>
+    <ul class="dropdown">
+        @foreach (var cate in Model)
+        {
+            <li><a asp-action="Index" asp-controller="Product" 
+                   asp-route-category="@cate.Id">@cate.CategoryName</a></li>
+        }
+    </ul>
+</li>

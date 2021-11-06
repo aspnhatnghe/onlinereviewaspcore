@@ -28,6 +28,7 @@ namespace MyWebApp
 
             //khai báo sử dụng service
             services.AddTransient<IProductService, ProductServiceFile>();
+            services.AddTransient<ICategoryService, CategoryServiceStatic>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

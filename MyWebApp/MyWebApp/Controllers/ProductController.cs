@@ -16,14 +16,21 @@ namespace MyWebApp.Controllers
             _productService = productService;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? category)
         {
-            return View(_productService.GetAll());
+            var data = category.HasValue ? _productService.GetProductByCategory(category.Value) : _productService.GetAll();
+
+            return View(data);
         }
 
         public IActionResult Detail(int id)
         {
-            return View();
+            var product = _productService.GetById(id);
+            if (product != null)
+            {
+                return View(product);
+            }
+            return NotFound();
         }
     }
 }

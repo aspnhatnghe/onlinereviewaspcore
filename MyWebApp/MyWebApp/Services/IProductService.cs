@@ -9,6 +9,7 @@ namespace MyWebApp.Services
     public interface IProductService
     {
         List<Product> GetAll();
+        List<Product> GetProductByCategory(int category);
         Product GetById(int id);
         void Add(Product product);
         void Update(Product product);

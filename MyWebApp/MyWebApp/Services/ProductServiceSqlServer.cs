@@ -28,6 +28,11 @@ namespace MyWebApp.Services
             throw new NotImplementedException();
         }
 
+        public List<Product> GetProductByCategory(int category)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(Product product)
         {
             throw new NotImplementedException();

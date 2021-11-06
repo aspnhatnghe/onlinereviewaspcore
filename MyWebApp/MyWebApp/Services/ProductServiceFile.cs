@@ -8,24 +8,26 @@ namespace MyWebApp.Services
 {
     public class ProductServiceFile : IProductService
     {
-        static List<Product> products = new List<Product>();     
-        
-        public ProductServiceFile()
-        {
-            products.Add(new Product
+        static List<Product> products = new List<Product>() {
+            new Product
             {
                 Id = 1, ProductName = "Iphone 13", Price = 1399, Discount = 0,
-                Description = "N/A", Image = "N/A"
-            });
-            products.Add(new Product
+                Description = "N/A", Image = "N/A", CategoryId = 1
+            },
+            new Product
             {
                 Id = 2,
                 ProductName = "Dell Latitude 3420",
                 Price = 1399,
                 Discount = 0,
                 Description = "N/A",
-                Image = "N/A"
-            });
+                Image = "N/A",
+                CategoryId = 2
+            }
+        };     
+        
+        public ProductServiceFile()
+        {           
         }
 
         public void Add(Product product)
@@ -50,6 +52,11 @@ namespace MyWebApp.Services
         public Product GetById(int id)
         {
             return products.SingleOrDefault(p => p.Id == id);
+        }
+
+        public List<Product> GetProductByCategory(int category)
+        {
+            return products.Where(p => p.CategoryId == category).ToList();
         }
 
         void IProductService.Update(Product product)
