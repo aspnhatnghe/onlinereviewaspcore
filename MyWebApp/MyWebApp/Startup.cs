@@ -29,6 +29,11 @@ namespace MyWebApp
             //khai báo sử dụng service
             services.AddTransient<IProductService, ProductServiceFile>();
             services.AddTransient<ICategoryService, CategoryServiceStatic>();
+
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(1);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +53,8 @@ namespace MyWebApp
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseSession();
 
             app.UseAuthorization();
 
